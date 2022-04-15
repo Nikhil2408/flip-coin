@@ -44,9 +44,9 @@ class Coin extends Component{
         let displayCoin;
         if(this.state.flipStatus){
             if(this.state.flipSide === "head")
-                displayCoin = <img className="Coin-img" src={this.props.images[0]}></img>
+                displayCoin = <img className="Coin-img" src={this.props.images[0]} alt = "Head Tail Image"></img>
             else
-                displayCoin = <img className="Coin-img" src={this.props.images[1]}></img>
+                displayCoin = <img className="Coin-img" src={this.props.images[1]} alt="Coin Tail Image"></img>
         }
             
         return (
