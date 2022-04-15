@@ -10,7 +10,7 @@ class Coin extends Component{
         super(props);
         this.state = {
             flipStatus: false,
-            flipside: "",
+            flipSide: "",
             totalFlips: 0,
             headCount: 0,
             tailCount: 0
@@ -19,19 +19,36 @@ class Coin extends Component{
     }
 
     flipCoin(){
-        this.setState(currentState => ({
-            flipStatus : true,
-            totalFlips: currentState.totalFlips + 1,
-            headCount: currentState.headCount + 1,
-            tailCount: currentState.tailCount + 1
-        }));
+        let side = Math.floor(Math.random() * this.props.images.length);
+        if(side === 0)
+        {
+            this.setState(currentState => ({
+                flipStatus : true,
+                totalFlips: currentState.totalFlips + 1,
+                headCount: currentState.headCount + 1,
+                flipSide: "head"
+            }));
+        }
+        else{
+            this.setState(currentState => ({
+                flipStatus : true,
+                totalFlips: currentState.totalFlips + 1,
+                tailCount: currentState.tailCount + 1,
+                flipSide: "tail"
+            }));
+        }
+        
     }
 
     render(){
         let displayCoin;
-        let side = Math.floor(Math.random() * this.props.images.length);
-        if(this.state.flipStatus)
-            displayCoin = <img className="Coin-img" src={this.props.images[side]}></img>
+        if(this.state.flipStatus){
+            if(this.state.flipSide === "head")
+                displayCoin = <img className="Coin-img" src={this.props.images[0]}></img>
+            else
+                displayCoin = <img className="Coin-img" src={this.props.images[1]}></img>
+        }
+            
         return (
             <div className = "Coin">
                 <h1>Let's flip a coin</h1>
