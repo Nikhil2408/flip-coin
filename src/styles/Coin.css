@@ -1,0 +1,25 @@
+.Coin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.Coin-img{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+.Coin-btn{
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 2rem 1rem;
+    border: none;
+}
+
+.Coin-btn:hover{
+    background-color: rgb(197, 195, 207);
+    cursor: pointer;
+}
